@@ -1,0 +1,126 @@
+\documentclass{tufte-handout}
+
+\title{Section 7.1 Trig Identities}
+
+\author[AW]{Ammon Washburn}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+\usepackage{tikz}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+%\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+
+\pgfplotsset{vasymptote/.style={
+    before end axis/.append code={
+        \draw[densely dashed] ({rel axis cs:0,0} -| {axis cs:#1,0})
+        -- ({rel axis cs:0,1} -| {axis cs:#1,0});
+    }
+}}
+\pgfplotsset{hasymptote/.style={
+    before end axis/.append code={
+    	%\draw (axis cs:0,1) -- ({axis cs:0,1}-|{rel axis cs:1,0});
+        \draw[densely dashed] ({rel axis cs:0,1} -| {axis cs:0,#1})
+        -- ({rel axis cs:0,0} -| {axis cs:0,#1});
+    }
+}}
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\Z}[1]{\mathbb{Z}^{#1}}
+
+\newtheorem{mydef}{Definition}
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+\providecommand{\abs}[1]{| #1 |}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Learning more trig identities
+\end{abstract}
+These Trig identities will not be given on the final.
+
+Old Trig Identities:
+\begin{align*}
+\csc(x) & = \frac{1}{\sin(x)} & \sec(x) & = \frac{1}{\cos(x)} & \cot(x) & = \frac{1}{\tan(x)} \\
+\tan(x) & = \frac{\sin(x)}{\cos(x)} & \cot(x) & = \frac{\cos(x)}{\sin(x)} \\
+\sin^2(x) + \cos^2(x) & = 1 & \tan^2(x) + 1 & = \sec^2(X) & 1 + \cot^2(x) & = \csc^2(x) \\
+\sin(-x) & = -\sin(x) & \cos(-x) &= \cos(x) & \tan(-x) & = - \tan(x)
+\end{align*}
+
+
+Cofunction Identities:
+\begin{align*}
+\sin(\frac{\pi}{2}-u) & = \cos(u) & \tan(\frac{\pi}{2}-u) & = \cot(u) & \sec(\frac{\pi}{2}-u) & = \csc(u) \\
+\cos(\frac{\pi}{2}-u) & = \sin(u) & \cot(\frac{\pi}{2}-u) & = \tan(u) & \csc(\frac{\pi}{2}-u) & = \sec(u) 
+\end{align*}
+
+\section{Simplifying Trigonometric Expressions}
+Simplify $\frac{\sin(\theta)}{\cos(\theta)} + \frac{\cos(\theta)}{1+\sin(\theta)}$.
+
+\section{Proving Trig Identities}
+Identity versus Equation.  An identity is true no matter what $x$ you put in.  An equation you have to figure which $x$ that makes it true.  In order words an identity is an equation that is true no matter what $x$ you put in.
+
+Guidelines for proving Trig identities:
+\begin{enumerate}
+\item Start with one side.  Try to make it look like the other side. If stuck try the other side.
+\item Use known identities.  Use them to change both sides to look like the other one.
+\item Convert to sines and cosines. This is helpful if stuck.
+\end{enumerate}
+
+Since we are proving identities we do not want to change the original thing we are proving.
+
+\subsection{Examples}
+\begin{enumerate}[(a)]
+\item $2\tan(x)\sec(x) = \frac{1}{1-\sin(x)}- \frac{1}{1+\sin(x)}$
+\item $\frac{\cos(u)}{1-\sin(u)} = \sec(u) + \tan(u)$
+\item Work both sides for this one $\frac{1 + \cos(\theta)}{\cos(\theta)} = \frac{\tan^2(\theta)}{\sec(\theta)-1}$
+\end{enumerate}
+
+\section{Trig Substitution}
+This will be useful in Calculus
+
+\begin{enumerate}[(a)]
+\item $\sqrt[]{x^2 -1}$ where $x = \sec(\theta)$ and $0 \leq \theta \leq \frac{\pi}{2}$
+\item $\frac{1}{x^2\sqrt[]{4+x^2}}$ where $x = 2\tan(\theta)$ and $0 \leq \theta \leq \frac{\pi}{2}$
+\end{enumerate}
+
+\end{document}

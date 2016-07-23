@@ -1,0 +1,107 @@
+\documentclass{tufte-handout}
+
+\title{Section 7.2 Addition and Subtraction Formulas}
+
+\author[AW]{Ammon Washburn}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+\usepackage{tikz}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+%\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+
+\pgfplotsset{vasymptote/.style={
+    before end axis/.append code={
+        \draw[densely dashed] ({rel axis cs:0,0} -| {axis cs:#1,0})
+        -- ({rel axis cs:0,1} -| {axis cs:#1,0});
+    }
+}}
+\pgfplotsset{hasymptote/.style={
+    before end axis/.append code={
+    	%\draw (axis cs:0,1) -- ({axis cs:0,1}-|{rel axis cs:1,0});
+        \draw[densely dashed] ({rel axis cs:0,1} -| {axis cs:0,#1})
+        -- ({rel axis cs:0,0} -| {axis cs:0,#1});
+    }
+}}
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\Z}[1]{\mathbb{Z}^{#1}}
+
+\newtheorem{mydef}{Definition}
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+\providecommand{\abs}[1]{| #1 |}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Learning to use the Addition and Subtraction Formulas
+\end{abstract}
+Addition and Subtraction formulas are the following.  These will be given on the final so they do not need to be memorized.
+\begin{align*}
+\sin(a + b) & = \sin(a)\cos(b) + \cos(a)\sin(b) \\
+\sin(a - b) & = \sin(a) \cos(b) - \cos(a) \sin(b) \\
+\cos(a + b) & = \cos(a)\cos(b) - \sin(a)\sin(b) \\
+\cos(a - b) & = \cos(a)\cos(b) + \sin(a)\sin(b) \\
+\tan(a + b) & = \frac{\tan(a) + \tan(b)}{1-\tan(a)\tan(b)} \\
+\tan(a - b) & = \frac{\tan(a) - \tan(b)}{1 + \tan(a)\tan(b)}
+\end{align*}
+
+\subsection{Examples}
+\begin{enumerate}[(a)]
+\item $\cos(\frac{\pi}{12})$
+\item $\sin(20^{\circ})\cos(40^{\circ}) + \cos(20^{\circ})\sin(40^{\circ})$
+\item Prove $\frac{1+ \tan(x)}{1-\tan(x)}=\tan(\frac{\pi}{4} + x)$
+\end{enumerate}
+
+\section{Evaluating Expressions Involving Inverse Trig Functions}
+Write $\sin(\cos^{-1}(x) + \tan^{-1}(y))$ without any trig functions.  What are valid inputs for $x$ and $y$?
+
+\section{Sum of $\sin$ and $\cos$}
+$A\sin(x) + B \cos(x) = k \sin(x + \phi)$ where $k=\sqrt[]{A^2+B^2}$ and $\phi$ satisfies $\cos(\phi) = \frac{A}{\sqrt[]{A^2 + B^2}}$ and $\sin(\phi) = \frac{B}{\sqrt[]{A^2 + B^2}}$
+
+\subsection{Examples}
+\begin{enumerate}[(a)]
+\item Express $3\sin(x) + 4\cos(x)$ in the form $k\sin(x+\phi)$.
+\item Express $-5\sin(x) + 12 \cos(x)$ in the form $k\sin(x + \phi)$.
+\end{enumerate}
+\end{document}

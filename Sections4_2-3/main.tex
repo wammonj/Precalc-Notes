@@ -1,0 +1,124 @@
+\documentclass{tufte-handout}
+
+\title{4.2 and 4.3 Natural exponentials and logarithms}
+
+\author[AW]{Ammon Washburn}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+  \usepackage{tikz}
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+
+\newtheorem{mydef}{Definition}
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We will talk about natural exponentials and logarithms
+\end{abstract}
+
+\section{Natural Exponential}
+$e$ is a number between 2 and 3.  It comes about naturally in calculus problems and in modeling problems.
+
+\subsection{Logistic Model and population growth models}
+
+Consider the function $G(t) = \frac{C}{1+ke^{rt}}$.  This is a good model for things like the spread of disease and population growth.  Contrast it with exponential growth models. $G(t) = P e^rt$
+
+Play with different values in the parameters to help them see what happens.
+
+Let $n(x) = \frac{11200}{1+55e^{-0.044t}}$ represent the bird population in a habitat.  What was the initial population? Find the population after 10, 20, 30 years.  What value is it approaching?
+
+\subsection{Continuous Interest}
+If we have a rate that is compounded continuously then we model it with the following.
+
+\[
+A(t) = Pe^{rt}
+\]
+
+Example: How long will it take for your investment to double if your account has an interest rate of \%5.00 compounded continuously?
+
+Do we need to know the principal amount?  No.  Just need $2=e^{.05t}$ and solve for $t$.  Wait how do we do this? We need the inverse of $e^x$.  The inverse of $e^x$ is $\ln(x)$.  So answer is $t = \frac{\ln (2)}{.05}$.  Plug in calculator.
+
+\section{Logarithms}
+
+Logarithms are the inverse functions of exponentials.  So $b^x = y$ iff $\log_{b} (y) = x$. 
+
+Examples: Solve the following examples using these properties
+
+\begin{multicols}{3}
+\begin{enumerate}[(a)]
+\item $e^{.05x} = 2$
+\item $2^{x}= 1$
+\item $(\frac{1}{2})^{2x}=4$
+\item $\ln(x) = 3$
+\item $\log_{10} (x) = 2$
+\end{enumerate}
+\end{multicols}
+
+There are some properties of logarithms that you need to know that come about because they are inverses of exponentials.
+\begin{multicols}{2}
+\begin{itemize}
+\item $\log_b (1) = 0$
+\item $\log_b (b) = 1$
+\item $\log_b (b^x) = x$
+\item $b^{\log_b(x)}=x$
+\end{itemize}
+\end{multicols}
+
+Examples:
+\begin{multicols}{3}
+\begin{enumerate}[(a)]
+\item $\log(10^4)$
+\item $\ln(e^4)$
+\item $e^{\ln(5x)}$
+\item $\log_2 (3 (\frac{1}{3} 2^4))$
+\item $\log_2( \frac{1}{2})$
+\item $\log_4(2^{2x})$
+\end{enumerate}
+\end{multicols}
+
+Because they are inverses we already know their domain and range.  Domain: $(0,\infty)$ and Range: $(-\infty,\infty)$.  Since exponentials had a horizontal asymptote at $y=0$ then logarithms have a vertical asymptote at $x=0$.  What do the graphs look like?  Flipped exponentials.
+
+Draw several graphs of logarithms for bases bigger and less than 1.
+
+\subsection{Transformations on logarithms}
+
+What happens to the domain if you do transformations in the horizontal directions? It changes the domain.  How to determine the domain of a scaled and shifted logarithmic function.
+
+Domain of $h(x) = a \log_b(t(x)) + c$ is $t(x) > 0$.
+
+Examples:
+
+\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item $f(x) = 3 \ln(x+3) -2$
+\item $e(x) = -2 \log_{10}(3(x-2)) +4$
+\item $s(x) = -2\log_{10}(3x - 2) +4$
+\item $y(x) = \log_2(-x-1)$
+\end{enumerate}
+\end{multicols}
+
+What happens when you reflect the logarithm across an axis? Do some examples.
+
+\end{document}

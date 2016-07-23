@@ -1,0 +1,120 @@
+\documentclass{tufte-handout}
+
+\title{Section 6.4 Inverse Trigonometric functions of angles}
+
+\author[AW]{Ammon Washburn}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+\usepackage{tikz}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+%\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+
+\pgfplotsset{vasymptote/.style={
+    before end axis/.append code={
+        \draw[densely dashed] ({rel axis cs:0,0} -| {axis cs:#1,0})
+        -- ({rel axis cs:0,1} -| {axis cs:#1,0});
+    }
+}}
+\pgfplotsset{hasymptote/.style={
+    before end axis/.append code={
+    	%\draw (axis cs:0,1) -- ({axis cs:0,1}-|{rel axis cs:1,0});
+        \draw[densely dashed] ({rel axis cs:0,1} -| {axis cs:0,#1})
+        -- ({rel axis cs:0,0} -| {axis cs:0,#1});
+    }
+}}
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\Z}[1]{\mathbb{Z}^{#1}}
+
+\newtheorem{mydef}{Definition}
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+\providecommand{\abs}[1]{| #1 |}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Getting more familiar with inverse trig functions using right triangles
+\end{abstract}
+
+\section{Inverse Sine, Inverse Cosine, and Inverse Tangent}
+
+If we are given a point and the right triangle associated with that point with hypotenuse $r$ then we can define inverse trig functions in the following way.
+
+\begin{align*}
+\sin^{-1}(\frac{y}{r}) &= \theta & Domain:& [-1,1] & Range:&[-\frac{\pi}{2},\frac{\pi}{2}] \\
+\cos^{-1}(\frac{x}{r}) &= \theta & Domain:&[-1,1] & Range:&[0,\pi] \\
+\tan^{-1}(\frac{y}{x}) &= \theta & Domain:&(-\infty,\infty) & Range:&(-\frac{\pi}{2},\frac{\pi}{2})
+\end{align*}
+
+\section{Solving for Angles in Right Triangles}
+
+Given two bits of information (Either $a,b$, $b,r$, $a,r$) You should be able to use the inverse trig functions to find the angle.
+
+\subsection{Examples}
+\begin{enumerate}
+\item A 40ft ladder leans against a building and the base is ft from the building.  What is the angle between the ladder and the building?
+\item Find all the angles $\theta$ between $0$ and $180$ degrees satisfying
+\begin{enumerate}
+\item $\sin(\theta) = 0.4$
+\item $\cos(\theta) = 0.4$
+\end{enumerate}
+\end{enumerate}
+
+\section{Evaluating Expressions Involving Inverse Trigonometric Functions}
+
+Steps to solve a nested Inverse Trig composition
+\begin{itemize}
+\item Draw the triangle and label $\theta$ appropriately.
+\item Then evaluate the outer functions based on $\theta$.
+\end{itemize}
+
+\subsection{Examples}
+
+\begin{enumerate}[(a)]
+\item $\cos(\sin^{-1}(\frac{3}{5}))$
+\item $\tan(\cos^{-1}(x))$ for $-1 \leq x \leq 1$
+\item Problems 39 or 40 in the textbook
+\end{enumerate}
+
+\end{document}

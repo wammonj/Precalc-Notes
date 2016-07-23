@@ -1,0 +1,151 @@
+\documentclass{article}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[margin = 0.75in]{geometry}
+\usepackage{enumerate}
+\usepackage[section]{placeins}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage[nameinlink, noabbrev]{cleveref}
+\usepackage[numbers, sort, longnamesfirst]{natbib}
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\alph{subsection})}
+\renewcommand{\thesubsubsection}{\arabic{section}.\alph{subsection}.\roman{subsubsection})}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\makeatletter
+\renewcommand\hyper@natlinkbreak[2]{#1}
+\makeatother
+
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{dkgreen}{rgb}{0,0.2,0}
+\definecolor{dkred}{rgb}{0.6,0,0}
+\definecolor{dkblue}{rgb}{0,0,0.4}
+
+\lstset{ 
+	language = Matlab,
+	basicstyle = \footnotesize,
+	numbers = none,
+	numberstyle = \color{gray},
+	%stepnumber = 1,
+	%numbersep = -5pt,
+	showspaces = false,
+	showstringspaces = false, 
+	rulecolor = \color{black},
+	tabsize = 3,
+	captionpos = t,
+	title=\lstname,
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	%escapeinside={\%*}{*)},
+	%morekeywords={*,...}
+	%caption = {This is the Caption}
+	aboveskip=-10px
+}
+
+\hypersetup{
+	colorlinks=true,
+	citecolor=dkblue,
+	linkcolor=dkblue,
+	citebordercolor=dkblue,
+	linkbordercolor=dkblue,
+	urlcolor=blue
+}
+
+\title{Online HW Schedule}
+
+\begin{document}
+
+{\centering
+{\bf Math 120R Section 002 Online Homework Assignments} \\[10px]
+{\bf Instructor: } Ammon Washburn \\[20px]
+}
+
+\begin{enumerate}
+\item[\bf Homework 0:] {\color{blue} Due: Saturday 10.03}
+
+\item[\bf Section 1.3 and 1.4:] {\color{blue} Due: Tuesday 09.22}
+
+\item[\bf Section 1.5 and 1.10:] {\color{blue} Due: Saturday 09.22}
+
+\item[\bf Section 2.1:] {\color{blue} Due: Wednesday 09.23}
+
+\item[\bf Section 2.2:] {\color{blue} Due: Wednesday 09.23}
+
+\item[\bf Section 2.3:] {\color{blue} Due: Saturday 09.26}
+
+\item[\bf Section 2.4:] {\color{blue} Due: Saturday 09.26}
+
+\item[\bf Section 2.5:] {\color{blue} Due: Wednesday 09.30}
+
+\item[\bf Section 2.6:] {\color{blue} Due: Saturday 10.03}
+
+\item[\bf Section 2.7:] {\color{blue} Due: Saturday 10.03}
+
+\item[\bf Mod. w/Fns:] {\color{blue} Due: Saturday 10.10}
+
+\item[\bf Section 3.1:] {\color{blue} Due: Saturday 10.10}
+
+\item[\bf Section 3.2:] {\color{blue} Due: Wednesday 10.14}
+
+\item[\bf Section 3.3:] {\color{blue} Due: Wednesday 10.14}
+
+\item[\bf Section 3.7:] {\color{blue} Due: Saturday 10.17}
+
+\item[\bf Section 4.1:] {\color{blue} Due: Wednesday 10.21}
+
+\item[\bf Section 4.2:] {\color{blue} Due: Wednesday 10.21}
+
+\item[\bf Section 4.3:] {\color{blue} Due: Thursday 10.22}
+
+\item[\bf Section 4.4:] {\color{blue} Due: Wednesday 10.28}
+
+\item[\bf Section 4.5:] {\color{blue} Due: Saturday 10.31}
+
+\item[\bf Section 4.6:] {\color{blue} Due: Saturday 10.31}
+
+\item[\bf Section 5.1:] {\color{blue} Due: Wednesday 11.04}
+
+\item[\bf Section 5.2:] {\color{blue} Due: Wednesday 11.04}
+
+\item[\bf Section 5.3:] {\color{blue} Due: Saturday 11.07}
+
+\item[\bf Section 5.4:] {\color{blue} Due: Saturday 11.07}
+
+\item[\bf Section 5.5:] {\color{blue} Due: Thursday 11.12}
+
+\item[\bf Section 6.1:] {\color{blue} Due: Wednesday 11.18}
+
+\item[\bf Section 6.2:] {\color{blue} Due: Saturday 11.21}
+
+\item[\bf Section 6.3:] {\color{blue} Due: Saturday 11.21}
+
+\item[\bf Section 6.4:] {\color{blue} Due: Wednesday 11.25}
+
+\item[\bf Section 7.1:] {\color{blue} Due: Wednesday 11.25}
+
+\item[\bf Section 7.2:] {\color{blue} Due: Wednesday 12.02}
+
+\item[\bf Section 7.3:] {\color{blue} Due: Wednesday 12.02}
+
+\item[\bf Section 7.4:] {\color{blue} Due: Thursday 12.03}
+
+\item[\bf Section 7.5:] {\color{blue} Due: Thursday 12.03}
+
+
+\end{enumerate}
+
+\end{document}

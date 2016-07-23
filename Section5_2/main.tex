@@ -1,0 +1,214 @@
+\documentclass{tufte-handout}
+
+\title{Section 5.2: Trigonometric Functions of Real Numbers}
+
+\author[AW]{Ammon Washburn}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+\usepackage{tikz}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+%\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+
+\pgfplotsset{vasymptote/.style={
+    before end axis/.append code={
+        \draw[densely dashed] ({rel axis cs:0,0} -| {axis cs:#1,0})
+        -- ({rel axis cs:0,1} -| {axis cs:#1,0});
+    }
+}}
+\pgfplotsset{hasymptote/.style={
+    before end axis/.append code={
+    	%\draw (axis cs:0,1) -- ({axis cs:0,1}-|{rel axis cs:1,0});
+        \draw[densely dashed] ({rel axis cs:0,1} -| {axis cs:0,#1})
+        -- ({rel axis cs:0,0} -| {axis cs:0,#1});
+    }
+}}
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\Z}[1]{\mathbb{Z}^{#1}}
+
+\newtheorem{mydef}{Definition}
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+
+
+\begin{document}
+
+
+\section{The Trigonometric Functions}
+Let $t \in \R{}$, and $P(x, y)$ be the terminal point on the unit circle determined by $t$. 
+Define
+\begin{enumerate}
+\item $\sin(t) = y$ {\color{blue} sine}
+\item $\cos(t) = x$ {\color{blue} cosine}
+\item $tan(t) = \frac{y}{x} {\color{green} = \frac{\sin(t)}{\cos(t)}}$ when $x \not= 0$ {\color{blue} tangent} 
+\item $\csc(t) = \frac{1}{y} {\color{green} = \frac{1}{\sin(t)}}$ when $y \not= 0$ {\color{blue} cosecant}
+\item $\sec(t) = \frac{1}{x} {\color{green} = \frac{1}{\cos(t)}}$ when $x \not= 0$ {\color{blue} secant}
+\item $\cot(t) = \frac{x}{y} {\color{green} = \frac{\cos(t)}{\sin(t)}}$ when $y \not= 0$ {\color{blue} cotangent}
+\end{enumerate}
+
+\subsection{Table for sines and consines}
+\begin{tabular}{c|c|c}
+$t$ & $\sin(t)$ & $\cos(t)$ \\ \hline
+$0$     & $\sqrt{0}/2$ & $\sqrt{4}/2$ \\
+$\pi/6$ & $\sqrt{1}/2$ & $\sqrt{3}/2$ \\
+$\pi/4$ & $\sqrt{2}/2$ & $\sqrt{2}/2$ \\
+$\pi/3$ & $\sqrt{3}/2$ & $\sqrt{1}/2$ \\
+$\pi/2$ & $\sqrt{4}/2$ & $\sqrt{0}/2$
+\end{tabular}
+
+\subsection{Examples}
+\begin{enumerate}
+\item $t = \pi/3$
+\item $t = \pi/2$
+\end{enumerate}
+{\color{blue} Solutions:
+\begin{tabular}{c|c|c|c|c|c|c}
+$t$ & $\sin(t)$ & $\cos(t)$ & $\tan(t)$ & $\csc(t)$ & $\sec(t)$ & $\cot(t)$ \\ \hline
+$\pi/3$ & $\sqrt{3}/2$ & 1/2 & $\sqrt{3}$ & $2\sqrt{3}/3$ & $2$ & $\sqrt{3}/3$ \\
+$\pi/2$ & 1 & 0 & $-$ & 1 & $-$ & 0
+\end{tabular}
+}
+
+\section{Domains of Trigonometric Functions}
+\begin{enumerate}
+\item $\sin, \cos$: $\R{}$
+\item $\tan, \sec$: $\R{}$ except $\frac{\pi}{2} + n\pi$ for $n \in \Z{}$
+\item $\cot, \csc$: $\R{}$ except $n\pi$ for $n \in \Z{}$
+\end{enumerate}
+
+\section{Values of the Trigonometric Functions}
+
+\subsection{Signs of Trig Functions}
+\begin{tabular}{c|c|c}
+Quadrant & Positive Functions & Negative Functions \\ \hline
+I & all & none \\
+II & sin, csc & rest \\
+III & tan, cot & rest \\
+IV & cos, sec & rest
+\end{tabular} \qquad
+Mnemonic: 
+\begin{tabular}{c|c}
+Students & All \\ \hline
+Take & Calc
+\end{tabular}
+
+\subsection{Examples}
+\begin{enumerate}[(a)]
+\item $\cos\left( \frac{2\pi}{3} \right)$
+\item $\tan\left( \frac{-\pi}{3} \right)$
+\item $\sin\left( \frac{19\pi}{4} \right)$
+\end{enumerate}
+{\color{blue}
+\begin{enumerate}[(a)]
+\item Reference number is $\bar{t} = \pi/3$; in QII, so 
+\begin{align*}
+\cos\left( \frac{2\pi}{3} \right) = -\cos\left( \frac{\pi}{3} \right) = -\frac{1}{2}
+\end{align*}
+\item Reference number is $\bar{t} = \pi/3$, in QIV, so
+\begin{align*}
+\tan\left( \frac{-\pi}{3} \right) = -\tan\left( \frac{\pi}{3} \right) = -\sqrt{3}
+\end{align*}
+\item Reference number is $\bar{t} = \pi/4$, in QII, so
+\begin{align*}
+\sin\left( \frac{19\pi}{4} \right) = \sin\left( \frac{3\pi}{4} \right) = \frac{\sqrt{2}}{2}
+\end{align*}
+\end{enumerate}
+}
+
+\subsection{Note for Calculators}
+{\color{red} Make sure calculator is set to radian mode!}
+MODE $>$ Radian (3rd down) 
+
+\subsection{Even and Odd Properties}
+\begin{enumerate}
+\item Sine, cosecant, tangent, and cotangent are all \textbf{odd} functions
+\item Cosine and secant are both \textbf{even} functions
+\end{enumerate}
+\begin{align*}
+&\sin(-t) = -\sin(t) &\cos(-t) = \cos(t) &\qquad\tan(-t) = -\tan(t) \\
+&\csc(-t) = -\csc(t) &\sec(-t) = \sec(t) &\qquad\cot(-t) = -\cot(t) 
+\end{align*}
+
+\subsection{Examples}
+\begin{enumerate}[(a)]
+\item $\sin(-\pi/6) {\color{blue} = -\sin(\pi/6) = -1/2}$ \\
+\item $\cos(-\pi/4) {\color{blue} = \cos(\pi/4) = \sqrt{2}/2}$
+\end{enumerate}
+
+\section{Fundamental Identities}
+\begin{enumerate}
+\item Reciprocal Identities:
+\begin{align*}
+\csc(t) = \frac{1}{\sin(t)} &\quad\sec(t) = \frac{1}{\cos(t)} &\quad\tan(t) = \frac{\sin(t)}{\cos(t)} &\quad\cot(t) = \frac{1}{\tan(t)} = \frac{\cos(t)}{\sin(t)}
+\end{align*}
+follow from definitions.
+\item Pythagorean Identities:
+\begin{align*}
+\sin^2(t) + \cos^2(t) = 1 &\qquad\tan^2(t) + 1 = \sec^2(t) &\quad 1 + \cot^2(t) = \csc^2(t)
+\end{align*}
+Proofs: divide by $\cos^2(t)$ and $\sin^2(t)$ respectively. 
+\end{enumerate}
+
+\subsection{Finding all trig functions from the value of 1}
+Given $\cos(t) = \frac{3}{5}$, and $t$ is in QIV.
+{\color{blue}
+\begin{align*}
+\sin^2(t) + \frac{9}{25} = 1 \Rightarrow \sin^2(t) = \frac{16}{25} \Rightarrow \sin(t) &= - \frac{4}{5} \\
+\tan(t) &= \frac{\sin(t)}{\cos(t)} = \frac{-4/5}{3/5} = -\frac{4}{3} \\
+\csc(t) &= \frac{1}{\sin(t)} = -\frac{5}{4} \\
+\sec(t) &= \frac{1}{\cos(t)} = \frac{5}{3} \\
+\cot(t) &= \frac{1}{\tan(t)} = -\frac{3}{4} 
+\end{align*}
+}
+
+\subsection{Writing one trig function in terms of another}
+Write $\tan(t)$ in terms of $\cos(t)$ for $t$ in QIII.
+We have
+\begin{align*}
+\tan(t) = \frac{\sin(t)}{\cos(t)}
+\end{align*}
+So we need to write $\sin(t)$ in terms of $\cos(t)$.
+Using Pythagorean theorem,
+\begin{align*}
+\sin^2(t) = 1 - \cos^2(t) \Rightarrow \sin(t) = \pm \sqrt{ 1 - \cos^2(t) }
+\end{align*}
+we take the $-$ root since we're in QIII.
+
+\end{document}

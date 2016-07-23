@@ -1,0 +1,143 @@
+\documentclass{tufte-handout}
+
+\title{4.5 Exponential and Logarithmic equations}
+
+\author[AW]{Ammon Washburn}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+  \usepackage{tikz}
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+
+\newtheorem{mydef}{Definition}
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We will learn how to solve logarithmic and exponential equations
+\end{abstract}
+
+\section{Section 4.5: Exponential and Logarithmic Equations}
+
+\subsection{Exponential Equations (variable in exponent)}
+Guidelines for solving exponential equations:
+\begin{enumerate}
+\item Isolate the exponential expression on one side of equation
+\item Take the log of each side
+\item Solve for the variable
+\end{enumerate}
+
+\subsection{Examples}
+\begin{enumerate}
+\item Solve for $x$: $5^{3 - 7x} = 24\cdot 5^{1-2x}$ (round to 6 decimal places).
+\begin{align*}
+24 &= 5^{3-7x}5^{2x-1} = 5^{2-5x} \Rightarrow 
+\log(24) = (2-5x)\log(5) \Rightarrow
+2-5x = \frac{\log(24)}{\log(5)} \Rightarrow \\
+5x &= 2 - \frac{\log(24)}{\log(5)} \Rightarrow 
+x = \frac{2}{5} - \frac{\log(24)}{5\log(5)} 
+\approx 0.005073
+\end{align*}
+Check: $5^{3 - 7(0.005073)} \approx 118.056$ and $24\cdot 5^{1-2(0.005073)} \approx 118.056$.
+
+\item $3e^x = 8 \Rightarrow e^x = \frac{8}{3} \Rightarrow x = \ln(8/3) \approx 0.9808$.
+Check via graphing $y_1 = 3e^x$ and $y_2 = 8$. (use option ``intersect" in TRACE$>$CALC menu). Can be done in general ($y_1 = LHS, y_2 = RHS$)
+
+\item $x^2 2^x - 2^x = 0$.
+\begin{align*}
+0 &= (x^2 - 1)2^x
+\end{align*}
+Since $2^x > 0$ for all $x$, then $(x^2 - 1) = 0 \Rightarrow x^2 = 1 \Rightarrow x = \pm 1$ (check both answers).
+\end{enumerate}
+
+\subsection{Logarithmic Equations (variable in logarithm)}
+Guidelines for solving logarithmic equations:
+\begin{enumerate}
+\item Isolate the log term on one side of equation (only one log term is best)
+\item Plug both sides into a log (ln or log)
+\item Solve for the variable
+\item Check your answer in the original equation!
+\end{enumerate}
+
+\subsection{Examples}
+\begin{enumerate}
+\item $\log(x + 2) + \log(x-1) = 1$
+\begin{align*}
+\log((x+2)(x-1)) = 1 \Rightarrow 
+(x+2)(x-1) = 10 \Rightarrow
+x^2 + x - 2 = 10 \Rightarrow \\
+x^2 + x - 12 = 0 \Rightarrow
+(x-3)(x+4) = 0 \Rightarrow
+x = 3, -4
+\end{align*}
+check both answers! only $x = 3$ works in original equation.
+
+\item $\log_2(x) + \log_4(x-2) = 1$  Use change of base formula to get bases of logs the same and then combine.
+
+\item If $I_0$ and $I$ denote the intensity of light before and after going through a material and $x$ is the distance (in feet) the light travels in the material, then according to the Beer-Lambert Law, 
+\begin{align*}
+-\frac{1}{k} \ln\left( \frac{I}{I_0} \right) = x
+\end{align*}
+where $k$ is a constant depending on the type of material.
+\begin{enumerate}[(a)]
+\item Solve for $I$.
+\item For a certain lake $k = 0.025$, and $I_0 = 14$ lumens (lm). Find the light intensity at a depth of 20 feet.
+\end{enumerate}
+\begin{enumerate}[(a)]
+\item \begin{align*}
+\ln\left( \frac{I}{I_0} \right) = -kx \Rightarrow 
+\frac{I}{I_0} = e^{-kx} \Rightarrow
+I = I_0 e^{-kx}
+\end{align*}
+
+\item Using our formula,
+\begin{align*}
+I = 14 \cdot e^{-0.025\cdot 20} \approx 8.49
+\end{align*}
+what are the units?
+\end{enumerate}
+\end{enumerate}
+
+\subsection{Compound Interest}
+
+\subsection{Example}
+Doubling time of an investment.
+You invest \$9000 in an account with an interest rate of 5\% per year.
+How many years will it take for the investment to double if the interest is compounded (a) quarterly, or (b) continously?
+\begin{enumerate}[(a)]
+\item \begin{align*}
+18000 = 9000 \left( 1 + \frac{0.05}{4} \right)^{4\cdot t} \Rightarrow
+2 = (1.0125)^{4t} \Rightarrow
+4t = \log(2)/\log(1.0125) \Rightarrow \\
+t = \frac{\log(2)}{4\log(1.0125)}
+\approx 13.95 \; yrs
+\end{align*}
+\item  \begin{align*}
+18000 = 9000 e^{0.05t} \Rightarrow
+2 = e^{0.05t} \Rightarrow
+0.05t = \ln(2) \Rightarrow
+t = 20\ln(2) \approx 13.86 \; yrs
+\end{align*}
+\end{enumerate}
+\end{document}

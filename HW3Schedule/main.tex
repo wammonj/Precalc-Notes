@@ -1,0 +1,104 @@
+\documentclass[fleqn]{article}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage[margin = 0.75in]{geometry}
+\usepackage{enumerate}
+\usepackage[section]{placeins}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage[nameinlink, noabbrev]{cleveref}
+\usepackage[numbers, sort, longnamesfirst]{natbib}
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\alph{subsection})}
+\renewcommand{\thesubsubsection}{\arabic{section}.\alph{subsection}.\roman{subsubsection})}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\makeatletter
+\renewcommand\hyper@natlinkbreak[2]{#1}
+\makeatother
+
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{dkgreen}{rgb}{0,0.2,0}
+\definecolor{dkred}{rgb}{0.6,0,0}
+\definecolor{dkblue}{rgb}{0,0,0.4}
+
+\lstset{ 
+	language = Matlab,
+	basicstyle = \footnotesize,
+	numbers = none,
+	numberstyle = \color{gray},
+	%stepnumber = 1,
+	%numbersep = -5pt,
+	showspaces = false,
+	showstringspaces = false, 
+	rulecolor = \color{black},
+	tabsize = 3,
+	captionpos = t,
+	title=\lstname,
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	%escapeinside={\%*}{*)},
+	%morekeywords={*,...}
+	%caption = {This is the Caption}
+	aboveskip=-10px
+}
+
+\hypersetup{
+	colorlinks=true,
+	citecolor=dkblue,
+	linkcolor=dkblue,
+	citebordercolor=dkblue,
+	linkbordercolor=dkblue,
+	urlcolor=blue
+}
+
+\title{Exam 3 HW Schedule}
+
+\begin{document}
+
+{\centering
+{\bf Math 120R Section 002 Homework Assignments (Through Test 3)} \\[10px]
+{\bf Instructor: } Ammon Washburn \\[20px]
+}
+
+\begin{enumerate}
+\item[\bf Section 4.4:] 14, 25, 35, 50, 56, 66, 70, 72 \\
+{\color{blue} Due: Friday 10.30}
+
+\item[\bf Section 4.5:] 4, 11, 22, 23, 26, 35, 40, 50, 56, 59, 73, 79, 83 \\
+{\color{blue} Due: Friday 10.30}
+
+\item[\bf Section 4.6:] 4, 13, 19, 28, 33, 38, 42 \\
+{\color{blue} Due: Tuesday 11.03}
+
+\item[\bf Section 5.1:] 6, 11, 19, 24, 27, 32, 34, 36, 41, 46, 54 \\
+{\color{blue} Due: Tuesday 11.03}
+
+\item[\bf Section 5.2:] 5, 10, 14, 18, 20, 32, 40, 48, 54, 61, 70, 71, 78 \\
+{\color{blue} Due: Friday 11.06}
+
+\item[\bf Section 5.3:] 6, 11, 26, 32, 42, 45, 48, 67, 75, 78 \\
+{\color{blue} Due: Friday 11.06}
+
+\item[\bf Section 5.4:] 10, 20, 23, 35, 38, 57 \\
+{\color{blue} Due: Tuesday 11.10}
+
+\item[\bf Section 5.5:] 3, 6, 8, 9, 14, 24, 26, 35, 40, 43 \\
+{\color{blue} Due: Thursday 11.12}
+
+\end{enumerate}
+
+\end{document}

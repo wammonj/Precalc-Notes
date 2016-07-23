@@ -1,0 +1,188 @@
+\documentclass{tufte-handout}
+
+\title{Section 4.6: Modeling with Exponential and Logarithmic Functions}
+
+\author[AW]{Ammon Washburn}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+  \usepackage{tikz}
+  
+  \usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+%\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+
+\pgfplotsset{vasymptote/.style={
+    before end axis/.append code={
+        \draw[densely dashed] ({rel axis cs:0,0} -| {axis cs:#1,0})
+        -- ({rel axis cs:0,1} -| {axis cs:#1,0});
+    }
+}}
+\pgfplotsset{hasymptote/.style={
+    before end axis/.append code={
+    	%\draw (axis cs:0,1) -- ({axis cs:0,1}-|{rel axis cs:1,0});
+        \draw[densely dashed] ({rel axis cs:0,1} -| {axis cs:0,#1})
+        -- ({rel axis cs:0,0} -| {axis cs:0,#1});
+    }
+}}
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+
+\newtheorem{mydef}{Definition}
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We will learn how to solve word problems with logarithmic and exponential models
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% -------------------------- SECTION 1 ----------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Doubling Time}
+Writing exponentials with base 2.
+If the initial size of the population is $n_0$ and the doubling time is $a$, then the size of the population at time $t$ is
+\begin{align*}
+P(t) = P_0 2^{t/a}
+\end{align*}
+where $a$ and $t$ are measured in the same units (of time).
+
+\subsection{Examples}
+%\begin{enumerate}
+%\item (\# 1) A culture of \textit{Streptococcus A} (bacterium) initially has 10 bacteria, and is observed to double every 1.5 hours.
+%\begin{enumerate}
+%\item Find an exponential model $n(t)$ for the number of bacteria in the culture after $t$ hours. \\
+%{\color{blue} Given $a = 1.5$, $n_0 = 10$. So $n(t) = 10\cdot 2^{t/1.5}$.}
+%\item Estimate the number of bacteria after 35 hours. \\
+%{\color{blue} Given $t = 35$, so $n(35) = 10\cdot 2^{35/1.5} \approx 1.06 \cdot 10^8$.}
+%\item When will the bacteria count reach 10,000? \\
+%{\color{blue} Given $n = 10000$, so $10000 = 10 \cdot 2^{t/1.5} \Rightarrow 
+%1000 = 2^{t/1.5} \Rightarrow 
+%3 = (t/1.5)log(2) \Rightarrow
+%t = \frac{4.5}{\log(2)} \approx 14.94868$.}
+%\end{enumerate} 
+%
+%\item 
+(\# 3) A grey squirrel population was introduced in a certain county of GB 30 years ago.
+Biologists observe that the population doubles every 6 years, and now the population is 100,000.
+\begin{enumerate}
+\item What was the initial size of the squirrel population? \\
+{\color{blue} We can write the equation $n(t) = 10^6 \cdot 2^{t/6}$ where $t$ is the years from present. 
+So $30$ years ago, we have $n(-30) = 10^6 \cdot 2^{-30/6} = 10^6 \cdot 2^{-5} = 31,250$.}
+\item Estimate the squirrel population 10 years from now. \\
+{\color{blue} Given $t = 10$, so $n(10) = 10^6 \cdot 2^{10/6} \approx 3.1748\cdot 10^6$, or about 3.1748 million.}
+\item Sketch a graph of the squirrel population.
+\end{enumerate}
+
+\subsection{Relative Growth Rate}
+Writing exponentials with base $e$.
+\textbf{Relative growth rate:} $r$, rate of population growth as a proportion of the population at any time $t$. \\
+\textbf{Exponential growth:} $n(t) = n_0 e^{rt}$ (what do all these represent?)
+
+\subsection{Example}
+What is the relative growth rate of the squirrel population in prev. problem? \\
+
+{\color{blue} We have $n(t) = n_0 \cdot 2^{t/6}$, want $n(t) = n_0 \cdot e^{rt}$. Setting these equal, and picking $t = 1$ (could pick any $t$ except 0), we have
+\begin{align*}
+2^{1/6} = e^r \Rightarrow r = \frac{1}{6}\ln(2)
+\end{align*}
+so $n(t) = n_0 \cdot e^{\ln(2)t/6}$.
+This makes sense! $2 = e^{\ln(2)} \Leftrightarrow 2^{t/6} = \left( e^{\ln(2)} \right)^{t/6}$.}
+
+(\# 1) A culture of \textit{Streptococcus A} (bacterium) initially has 10 bacteria, and is observed to double every 1.5 hours. How many bacteria will there be after 10 hours?\\
+
+\subsection{Radioactive Decay}
+Rate of decay proportional to mass.
+Similar to population growth, but mass is decreasing.
+In terms of \text{half-life}: how long it takes for 1/2 the mass to disappear.
+Modeled by
+\begin{align*}
+m(t) = m_0 2^{-t/h} = m_0 \left(\frac{1}{2} \right)^{t/h}
+\end{align*}
+where $m_0$ is the initial mass, $h$ is the half-life, $t$ is time (same units as $h$).
+Alternatively,
+\begin{align*}
+m(t) = m_0 e^{-rt} \qquad r = \frac{\ln(2)}{h}
+\end{align*}
+like we saw in the last example.
+
+\subsection{Example}
+(\# 17) The half-life of radium-226 is 1600 years. We have a 22-mg sample.
+\begin{enumerate}[(a)]
+\item Find half-life function.\\
+{\color{blue} Given $m_0 = 22$, and $h = 1600$. So $m(t) = 22 \cdot 2^{-t/1600}$.}
+\item Find exponential function.\\
+{\color{blue} Using formula above, $m(t) = 22 \cdot e^{-\ln(2)t/1600}$.}
+\item How much is left after 4000 years?\\
+{\color{blue} Given $t = 4000$. So $m(4000) = 22 \cdot 2^{-4000/1600} = 22 \cdot 2^{-2.5} =  11/(2\sqrt{2}) \approx 3.889$ mg.}
+\item How long until 18 mg left?\\
+{\color{blue} $18 = 22 \cdot e^{-\ln(2)t/1600} \Rightarrow \frac{9}{11} = e^{-\ln(2)t/1600} \Rightarrow \ln\left( \frac{9}{11} \right) = -\ln{2}t/1600 \Rightarrow
+t = -1600\ln\left( \frac{9}{11} \right)/\ln(2) \approx 463.21$ years.}
+\end{enumerate}
+
+\subsection{Newton's Law of Cooling}
+Rate of cooling is proportional to temperature difference between object and surroundings.
+Model:
+\begin{align*}
+T(t) = T_s + D_0 e^{-kt}
+\end{align*}
+where $T_s$ (surrounding temp), $D_0$ (initial temp difference), $k$ (positive const, depends on object), $t$ is in time, $T(t)$ is output temperature. 
+
+\subsection{Example}
+(\# 26) NLC is used in homicide investigations to determine the time of death.
+The normal body temp is 98.6$^\circ$F.
+Immediately following death, the body begins to cool.
+It has been determined experimentally that the constant in NLC is approx. $k = 0.1947$, assuming that time is measured in hours.
+Suppose the temp is 60$^\circ$F. 
+\begin{enumerate}[(a)]
+\item Find a function $T(t)$ that models the temperature $t$ hours after death. \\
+{\color{blue} $T(t) = 60 + (98.6-60)e^{-0.1947t}$}
+\item If the temperature of the body is now 72$^\circ$F, how long ago was the time of death? \\
+{\color{blue} Given $T(t) = 72$, looking for $t$.
+\begin{align*}
+72 &= 60 + 38.6 e^{-0.1947t} \Rightarrow 12 = 38.6 e^{-0.1947t} \Rightarrow
+-0.1947t = \ln\left( \frac{12}{38.6} \right) \Rightarrow \\
+t &= \frac{-1}{0.1947} \ln \left( \frac{12}{38.6} \right)
+\approx 6.0007
+\end{align*}
+so probably about 6 hours.}
+\end{enumerate}
+
+\end{document}

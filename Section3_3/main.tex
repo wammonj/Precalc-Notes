@@ -1,0 +1,91 @@
+\documentclass{tufte-handout}
+
+\title{3.3 Dividing polynomials}
+
+\author[AW]{Ammon Washburn}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage[inline]{enumitem}
+\usepackage{wrapfig}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+  \usepackage{tikz}
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+
+\newtheorem{mydef}{Definition}
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Learn how to use long and synthetic division to split up polynomials.  Learn how to factor large polynomials.
+\end{abstract}
+
+\section{Division Algorithm}
+
+If you divide 7 by 2, then you get 3 with a remainder of 1.  In other words, how can you write 7 in terms of the largest multiple of 2?  $7 = 3 * 2 + 1$.  Simple right?  What about polynomials?
+
+
+\begin{mydef}
+Division Algorithm: For two polynomials $P(x)$ and $D(x)$ where you divide $P$ (dividend) by $D$ (divisor).  There are $Q(x)$ (quotient) and $R(x)$ (remainder) such that $P(x) = Q(x)D(x) + R(X)$ and the degree of $R$ is less than the degree of $D$.
+\end{mydef}
+
+Alternatively we could write it as $\frac{P(x)}{D(x)}= Q(x) + \frac{R(x)}{D(x)}$
+
+Algorithm? What algorithm?  You can use long division or synthetic division.
+
+\subsection{Examples}
+
+Long division: Divide $7x^4-3x^2+2x$ by $x^2+x$
+
+Answer: $Q(x) = 7x^2-7x+4$ and $R(x) = -2x$.  How can we write the dividend in terms of the divisor?
+
+Long division: Divide $x^5-2x^3+2x^2+3x-4$ by $x^3+2$.  Then by $x^2-2$.  Answer: The other quotient with remainder $3x$
+
+\section{Synthetic Division}
+
+This is only used when the divisor is of the form $x-c$.  
+
+Let's take $7x^4-3x^2+2x$ and divide by $x - 0$.  Answer: $7x^3-3x+2$ with remainder of $0$.
+
+Now take $7x^3-3x+2$ and divide by $x-(-1)$.  Answer: $7x^2-7x+4$ with remainder of $2$.
+
+\subsection{Remainder Theorem}
+
+\begin{mydef}
+Remainder Theorem: When you divide a polynomial $P(x)$ by a linear divisor $x-c$ then the remainder is $P(c)$.
+\end{mydef}
+
+Check above examples to prove.  Note that with $x-0$ we get a special case.
+
+\begin{mydef}
+Factor Theorem: $x-c$ is a factor of $P(x)$ if and only if $P(c) = 0$.
+\end{mydef}
+
+Using factor theorem: Find $h$ so that $x-2$ is a factor of $P(x) = 2x^4 - 9x^3 - h x^2 + 36x-16$
+
+\section{Examples}
+Factor the following polynomials with the given divisors and factor out completely from there.
+
+$2 x^4-5 x^3-23 x^2+38 x+24$ with $x+3$ and $x-4$
+
+$3 x^5-8 x^4+15 x^3-30 x^2+12 x+8$ with $x^2+4$ and find another factor using your calculator and then check it.
+
+\end{document}

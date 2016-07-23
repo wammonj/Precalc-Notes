@@ -1,0 +1,134 @@
+\documentclass{tufte-handout}
+
+\title{Section 6.1 Angle measure}
+
+\author[AW]{Ammon Washburn}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+\usepackage{tikz}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+%\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+
+\pgfplotsset{vasymptote/.style={
+    before end axis/.append code={
+        \draw[densely dashed] ({rel axis cs:0,0} -| {axis cs:#1,0})
+        -- ({rel axis cs:0,1} -| {axis cs:#1,0});
+    }
+}}
+\pgfplotsset{hasymptote/.style={
+    before end axis/.append code={
+    	%\draw (axis cs:0,1) -- ({axis cs:0,1}-|{rel axis cs:1,0});
+        \draw[densely dashed] ({rel axis cs:0,1} -| {axis cs:0,#1})
+        -- ({rel axis cs:0,0} -| {axis cs:0,#1});
+    }
+}}
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\Z}[1]{\mathbb{Z}^{#1}}
+
+\newtheorem{mydef}{Definition}
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+\providecommand{\abs}[1]{| #1 |}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Learn about the basic properties of angles
+\end{abstract}
+
+
+\begin{mydef}
+An angle $AOB$ consists of rays R1 and R2 with a common vertex $O$.  Interpet the angle as the rotation of R1 (intial side) onto R2 (terminal side).  As with a unit circle, counterclockwise rotation is positive.  The measure of an angle $\theta$ is the amount of rotation required.  How much it opens.
+\end{mydef}
+
+One unit of measurement of $\theta$ is the degree while another is radians.  Note if degree or rad is not given then assume radians.
+
+\section{Conversion from radians to degrees}
+
+\begin{itemize}
+\item If you want to convert from radians to degrees then multiply by $\frac{180}{\pi}$
+\item If you want to convert from degrees to radians then multiply by $\frac{\pi}{180}$
+\end{itemize}
+
+\subsection{Examples}
+\begin{enumerate}[(a)]
+\item Convert 120 degrees to radians
+\item Convert $-\frac{\pi}{3}$ radians to degrees
+\end{enumerate}
+
+\section{Angles in Standard Position}
+
+\begin{mydef}
+An angle is in standard position if it is drawn in the xy-plane with vertex at the origin and the initial side on the x-axis (like last chapter).  Two angles are coterminal if terminal sides coincide.
+\end{mydef}
+
+\subsection{Examples}
+\begin{enumerate}[(a)]
+\item Angles coterminal to 2
+\item Angles coterminal to $25^{\circ}$
+\end{enumerate}
+
+\section{Length of an Arc}
+
+The length $s$ you travel around a circle of radius $r$ where you go an angle of $\theta$ is $s = r\theta$.
+
+\subsection{Examples}
+Do some examples in the textbook (Questions 51-53 are good enough)
+
+\section{Area of Circular Sector}
+Area of a circle: $A = \pi r^2$.  Area of a sector: $A = \frac{\theta}{2\pi}\pi r^2 = \frac{1}{2}\theta r^2$
+
+\subsection{Examples}
+Examples in the book (Questions 62-63 are good enough)
+
+\section{Circular Motion}
+A point moves along a circle of radius $r$ traverses $\theta$ radians in time $t$.  Travels distance $s=r\theta$.
+
+There are two ways to talk about speed that are equivalent.  Angular speed: $\omega= \frac{\theta}{t}$ and Linear Speed: $v=\frac{s}{t}$.
+
+Note that $v = \frac{s}{t} = \frac{r\theta}{t} = r \omega$.
+
+\subsection{Examples}
+Do example 64 in textbook and any others. 
+\end{document}

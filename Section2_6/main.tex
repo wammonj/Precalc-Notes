@@ -1,0 +1,78 @@
+\documentclass{tufte-handout}
+
+\title{Section 2.6 Algebra of functions}
+
+\author[AW]{Ammon Washburn}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage[inline]{enumitem}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+
+\newtheorem{mydef}{Definition}
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Learn how properties of functions change as you combine functions
+\end{abstract}
+
+\section{Algebra of functions and their domains}
+Let f(x) and g(x) be given with domains A and B respectively.  Then
+\begin{eqnarray}
+(f + g)(x) = f(x) + g(x) & Domain: A \cap B \\
+(f - g)(x) = f(x) - g(x) & Domain: A \cap B \\
+(fg)(x) = f(x)g(x) & Domain: A \cap B \\
+\frac{f}{g}(x) = \frac{f(x)}{g(x)} & Domain: A \cap \{x \in B | g(x) \neq 0 \}
+\end{eqnarray}
+
+Examples: Let $f(x) = \sqrt[]{2-x}$ and let $g(x) = \frac{x}{\sqrt{x+3}}$.  Domain of f(x) is $(-\infty,2]$ and domain of g(x) is 
+$(-3,\infty)$.  Find the following functions and their domains:
+
+\begin{enumerate*}[label=\Alph*]
+\item $(f+g)(x)$
+\item $(fg)(x)$
+\item $\frac{f}{g}(x)$
+\end{enumerate*}
+
+\noindent Answer: A) $\sqrt[]{2-x} + \frac{x}{\sqrt[]{x+3}}$ Domain: (-3,2].  B) $\frac{x \sqrt[]{2-x}}{\sqrt{x+3}}$ Domain: (-3,2]  C) $\frac{\sqrt[]{(2-x)(x+3)}}{x}$ Domain: (-3,0) $\cup$ (0,2]
+
+\subsection{Composition of functions}
+\begin{mydef}
+The composition of f with g (with domains A and B respectively ) or $f \circ g$ is defined as $f \big ( g(x) \big )$ and the domain of this new function is$ \{ x \in B \mid g(x) \in A \}$
+\end{mydef}
+
+Easy way of finding it out is finding the domain of g (B) and intersecting with the domain of the simplified function $f \big ( g(x) \big )$.
+
+\smallskip
+
+\noindent Examples: Let $f(x) = \frac{1}{x-5}$ and $g(x) = \frac{5x + 2}{x}$.  Find $f \circ g$ and $g \circ f$ with their domains.
+
+Answers: $f \circ g = \frac{x}{2}$ with Domain: $(-\infty,0) \cup (0,\infty)$.  $g \circ f = 2 x - 5$ with Domain $(-\infty,5) \cup (5,\infty)$
+
+Notice that $f \circ g \neq g \circ f$ and in general they are not equal.  
+
+\section{Quiz}
+
+
+
+\end{document}

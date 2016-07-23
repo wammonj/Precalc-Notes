@@ -1,0 +1,139 @@
+\documentclass{tufte-handout}
+
+\title{Section 6.3 Trigonometric functions of angles}
+
+\author[AW]{Ammon Washburn}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+\usepackage{tikz}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+%\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+
+\pgfplotsset{vasymptote/.style={
+    before end axis/.append code={
+        \draw[densely dashed] ({rel axis cs:0,0} -| {axis cs:#1,0})
+        -- ({rel axis cs:0,1} -| {axis cs:#1,0});
+    }
+}}
+\pgfplotsset{hasymptote/.style={
+    before end axis/.append code={
+    	%\draw (axis cs:0,1) -- ({axis cs:0,1}-|{rel axis cs:1,0});
+        \draw[densely dashed] ({rel axis cs:0,1} -| {axis cs:0,#1})
+        -- ({rel axis cs:0,0} -| {axis cs:0,#1});
+    }
+}}
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\Z}[1]{\mathbb{Z}^{#1}}
+
+\newtheorem{mydef}{Definition}
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+\providecommand{\abs}[1]{| #1 |}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Apply our knowledge of right triangles to the 'unit circle' and get similar results
+\end{abstract}
+
+\begin{mydef}
+Standard form of a right triangle given an angle $\theta$.  Place vertex of $\theta$ on the origin with the adjacent side on the x-axis.
+\end{mydef}
+
+In other words take a point $P(x,y)$ and we can make a right triangle out of that point.  Then we can define all the trig functions using $x$, $y$, and $r = \sqrt[]{x^2 + y^2}$.
+
+\begin{multicols}{3}
+\begin{itemize}
+\item $\sin(\theta) = \frac{y}{r}$
+\item $\cos(\theta) = \frac{x}{r}$
+\item $\tan(\theta) = \frac{y}{x}$
+\item $\cot(\theta) = \frac{x}{y}$
+\item $\csc(\theta) = \frac{r}{y}$
+\item $\sec(\theta) = \frac{r}{x}$
+\end{itemize}
+\end{multicols}
+
+This is now exactly the same as the unit circle definition but we allow $r$ to be something other than one.
+
+Note: The quadrantal angles are the ones that lie on the axis: $0$,$\frac{\pi}{2}$,$\pi$,$\frac{3pi}{2}$,$2\pi$ and all the others.
+
+\section{Evaluating Trig functions}
+
+Have class fill out table with trig function exact values for certain angles.
+
+\begin{center}
+\begin{tabular}{c | c | c | c | c | c | c}
+Angle $\theta$ & $\sin(\theta)$ & $\csc(\theta)$ & $\cos(\theta)$ & $\sec(\theta)$ & $\tan(\theta)$ & $\cot(\theta)$ \\
+\hline
+0 & 0 & undefined & 1 & 1 & 0 & undefined \\
+$\frac{\pi}{6}$ & $\frac{1}{2}$ & 2 & $\frac{\sqrt[]{3}}{2}$ & $\frac{2}{\sqrt[]{3}}$ & $ \sqrt[]{3}$ & $\frac{1}{\sqrt[]{3}}$ \\
+$\frac{\pi}{4}$ & $\frac{\sqrt[]{2}}{2}$ & $\sqrt[]{2}$ & $\frac{\sqrt[]{2}}{2}$ & $\sqrt[]{2}$ & 1 & 1 \\
+$\frac{\pi}{3}$ & $\frac{\sqrt[]{3}}{2}$ & $\frac{2}{\sqrt[]{3}}$ & $\frac{1}{2}$ & 2 & $\frac{1}{\sqrt[]{3}}$ & $ \sqrt[]{3}$ \\
+$\frac{\pi}{2}$ & 1 & 1 & 0 & undefined & undefined & 0
+\end{tabular}
+\end{center}
+
+All you need to know is the reference angle and the quadrant.  Won't talk about that here.
+
+\section{Trig Identities}
+
+We already know the following trig identities.  Use them in the examples.
+
+\begin{align*}
+\sin^2(x) + \cos^2(x) = 1 \\
+\tan^2(x) + 1 = \sec^2(x) \\
+1 + \cot^2(x) = \csc^2(x)
+\end{align*}
+
+\subsection{Examples}
+\begin{enumerate}
+\item Write $\tan(x)$ in terms of $\sec(x)$ where $x$ is in the III quadrant
+\item Simplify $\tan^2(x) \cos^2(x) + \cos^2(x)$
+\item Write $\cos(x)$ in terms of $\sin(x)$ where $x$ is in the II or III quadrant
+\item If $\cot(\theta) = B$ and the terminal side is in quadrant II
+\end{enumerate}
+
+\section{Examples for section}
+Try problems 67 and 71 in the textbook.
+\end{document}

@@ -1,0 +1,89 @@
+\documentclass{tufte-handout}
+
+\title{3.7 Rational functions}
+
+\author[AW]{Ammon Washburn}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+  \usepackage{tikz}
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+
+\newtheorem{mydef}{Definition}
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+
+\begin{document}
+\maketitle
+
+
+\begin{abstract}
+Learn some key properties about rational functions and learn how to graph them
+\end{abstract}
+
+\section{Properties of Rational Functions}
+
+We are going to learn some key properties about rational functions
+
+\begin{itemize}
+\item Domain and Vertical Asymptotes
+\item Horizontal Asymptotes
+\item Zeros and y-intercepts
+\item Slant Asymptotes
+\end{itemize}
+
+\subsection{Domain and Vertical Asymptotes}
+
+If you know where a function is undefined then you know the vertical asymptotes.  We write asymptotes as vertical lines $x=c$.  Factor out the bottom.
+
+If $r(c) = \frac{0}{0}$ then it is called a removable singularity.  It means you could almost remove it (but don't!).
+
+\subsection{Horizontal Asymptotes}
+
+We can find the horizontal asymptotes by using long division.  If it happens that we have two cases then we don't have to do long division.
+
+Case 1: If the degree of the top is smaller than the degree of the bottom. $y=0$ is the horizontal asymptote.  
+
+Case 2: If the degree of the top is equal to the degree of the bottom then the horizontal asymptote is the ratio of the coefficients.
+
+Case 3: If the degree of the top is greater than the degree of the bottom then we need to do long division.  Then we can get slant asymptote or something greater. $y=ax+b$.
+
+\section{Graphing Rational Functions and Examples}
+Steps to graph rational functions
+\begin{itemize}
+\item Find domain and vertical asymptotes
+\item Find zeros and y-intercept
+\item Find the horizontal asymptote
+\item Use as many points as needed to figure out where graph is
+\end{itemize}
+
+Examples
+\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item $r(x) = \frac{2x^2+7x-4}{x^2+x-2}$
+\item $t(x) = \frac{2x^3+2x}{x^2-1}$
+\item $s(x) = \frac{x^2-4}{x^2-x-6}$
+\item $a(x) = \frac{x-2}{x^2-16}$
+\item $h(x) = \frac{3x^2+9x-30}{4x^2+28x+10}$
+\end{enumerate}
+\end{multicols}
+
+\end{document}

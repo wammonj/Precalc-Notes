@@ -1,0 +1,109 @@
+\documentclass{tufte-handout}
+
+\title{Section 7.3 Double Angle Formulas}
+
+\author[AW]{Ammon Washburn}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage{enumerate}
+\usepackage{wrapfig}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+\usepackage{tikz}
+\usepackage{subcaption}
+\captionsetup{compatibility=false}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{breqn}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+%\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\R}[1]{\mathbb{R}^{#1}}
+
+\pgfplotsset{vasymptote/.style={
+    before end axis/.append code={
+        \draw[densely dashed] ({rel axis cs:0,0} -| {axis cs:#1,0})
+        -- ({rel axis cs:0,1} -| {axis cs:#1,0});
+    }
+}}
+\pgfplotsset{hasymptote/.style={
+    before end axis/.append code={
+    	%\draw (axis cs:0,1) -- ({axis cs:0,1}-|{rel axis cs:1,0});
+        \draw[densely dashed] ({rel axis cs:0,1} -| {axis cs:0,#1})
+        -- ({rel axis cs:0,0} -| {axis cs:0,#1});
+    }
+}}
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\Z}[1]{\mathbb{Z}^{#1}}
+
+\newtheorem{mydef}{Definition}
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+\providecommand{\abs}[1]{| #1 |}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Apply Addition formula to get double angle formula and learn how to use it
+\end{abstract}
+
+Using last section we know that
+\begin{align*}
+\sin(2x) = \sin(x+x) = \sin(x)\cos(x) + \sin(x)\cos(x) & = 2\sin(x)\cos(x) \\
+\cos(2x) = \cos(x+x) = \cos(x)\cos(x) - \sin(x)\sin(x) & = \cos^2(x) - \sin^2(x) \\
+& = 1 - 2\sin^2(x) \\
+&2\cos^2(x) -1
+\end{align*}
+
+These are called the double angle formula.
+
+\subsection{Examples}
+\begin{enumerate}[(a)]
+\item $\cos(x) = -\frac{2}{3}$ and $x$ is in quadrant II. Find $\cos(2x)+\sin(2x)$
+\item Write $\cos(3x)$ in terms of $\cos(x)$
+\end{enumerate}
+
+\section{Formulas for Lowering powers}
+We can rearragne the double sum formula for cosine and get the following equations:
+\begin{align*}
+\sin^2 & = \frac{1-\cos(2x)}{2} & \cos^2(x) & = \frac{1 + \cos(2x)}{2} & \tan^2(x) = \frac{1-\cos(2x)}{1+\cos(2x)}
+\end{align*}
+\subsection{Examples}
+\begin{enumerate}
+\item $\sin(x)^2\cos^2(x)$
+\item $\cos(x)\sin^2(x)$
+\item $\tan(x) = -\frac{4}{3}$, $x$ in quadrant II. Find $\sin(2x)$, $\cos(2x)$, and $\tan(2x)$
+\item $\csc(x) = 4$, $\tan(x) < 0$. Find $\sin(2x)$, $\cos(2x)$, and $\tan(2x)$
+\end{enumerate}
+
+\end{document}

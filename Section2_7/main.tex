@@ -1,0 +1,100 @@
+\documentclass{tufte-handout}
+
+\title{Section 2.7 1-1 functions and their inverses}
+
+\author[AW]{Ammon Washburn}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{graphics/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{lipsum}   % filler text
+\usepackage[inline]{enumitem}
+\usepackage{fancyvrb} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+
+\newtheorem{mydef}{Definition}
+\providecommand{\floor}[1]{\left \lfloor #1 \right \rfloor }
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Learn when you can invert a function and what one-to-one means
+\end{abstract}
+
+\section{1-1 functions}
+\begin{mydef}
+A function f is one-to-one if $x \neq y$ then $f(x) \neq f(y)$.
+\end{mydef}
+Examples of function that are not one-to-one:
+\begin{align}
+f(x) & = x^2 & f(-2) & = f(2)\\
+w(x) & = x(x-1)(x+3) & g(-3) & = g(1) \\
+q(x) & = \pm \sqrt[]{x+2} & \textrm{Not even a} & \textrm{ function!}
+\end{align}
+
+\subsection{How to tell from a graph}
+\begin{mydef}
+If any horizontal line passes through the graph only once then the function is one-to-one.  This is called the horizontal line test.
+\end{mydef}
+
+\section{Inverse Functions}
+\begin{mydef}
+If f is one-to-one with domain A and range B then its inverse $f^{-1}$ has domain B and range A and is defined as follows:
+\end{mydef}
+\[f^{-1}(y) = x \Leftrightarrow f(x) = y\]
+
+\noindent Examples:
+
+\begin{table}
+\centering
+\begin{tabular}{c || c | c | c | c}
+x & 1 & 2 & 3 & 4 \\
+\hline
+$g(x)$ & -1 & 2 & -3 & 5
+\end{tabular}
+\quad
+\begin{tabular}{c || c | c | c | c}
+x & -1 & 2 & -3 & 5 \\
+\hline
+$g^{-1}(x)$ & 1 & 2 & 3 & 4
+\end{tabular}
+\end{table}
+
+Is g(x) one-to-one? Yes.  So we can do the inverse.  With tables you just flip the numbers and call it $g^{-1}(x)$.
+
+\begin{mydef}
+Function Inverse Property says that if $f$ and $f^{-1}$ are inverses of each other then $f \big ( f^{-1} (x) \big ) = x$ and $ f^{-1} \big ( f (x) \big ) = x$
+\end{mydef}
+
+\noindent Example: $r(x) = \frac{1}{x-5}$ and $e(x) = \frac{5x + 1}{x}$. $r \circ e (x) = x$ and $e \circ r (x) = x$
+
+\subsection{How to find the inverse of an equation}
+
+If given a function $f$ ($f(x) = \frac{x+1}{x+2}$) then do the following steps:
+\begin{itemize}
+\item Switch $y$ for $f(x)$ ~ ($y = \frac{x+1}{x+2}$)
+\item Solve for x in terms of y ~ ($x = \frac{-2y + 1}{y -1}$)
+\item Rewrite y as x and x as $f^{-1}(x)$ ($f^{-1}(x) = \frac{-2x + 1}{x -1}$)
+\end{itemize}
+It is important to not switch variables if they mean something. Like $P(h) = h^2$ where $h$ is the height and $P$ is the pressure.  These variables have meaning.
+
+\section{Quiz}
+
+
+
+\end{document}
